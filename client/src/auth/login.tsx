@@ -1,4 +1,4 @@
-import Head from "next/head";
+/* import Head from "next/head";
 import Layout from "../../layout/layout";
 import Link from "next/link";
 import Image from "next/image";
@@ -7,6 +7,7 @@ import styles from "../styles/login.module.css";
 
 export default function Login() {
   const { data: session } = useSession();
+  console.log(session);
 
   async function handleGoogleSignin() {
     try {
@@ -48,5 +49,20 @@ export default function Login() {
         </form>
       </section>
     </div>
+  );
+} */
+
+import { signIn } from "next-auth/react";
+
+export default function Login() {
+  return (
+    <li className="list-none">
+      <button
+        className="text-sm bg-gray-700 text-white py-2 px-6 rounded-xl disabled:opacity-25"
+        onClick={() => signIn()}
+      >
+        Sign In
+      </button>
+    </li>
   );
 }
